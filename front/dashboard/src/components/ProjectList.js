@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FaTrash } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 const MainDiv = styled.div``;
 
@@ -45,6 +46,7 @@ const Div = styled.div`
 
 
 function ProjectComponent({ title, explain, id, setProjects, projects }) {
+  const navigate = useNavigate();
   const [isHover, setIsHover] = useState(false);
 
   const handleMouseOver = () => {
@@ -60,8 +62,12 @@ function ProjectComponent({ title, explain, id, setProjects, projects }) {
     setProjects(deleteProject);
   }
 
+  const projectDetail = () => {
+    navigate(`/project-detail/${id}`);
+  }
+
   return (
-    <MainDiv onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+    <MainDiv onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} onClick={projectDetail}>
       <ProjectCard>
         <InfoBox>
           <Title>{title}</Title>

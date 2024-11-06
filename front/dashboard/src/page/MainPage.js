@@ -99,7 +99,7 @@ function MainPage(){
         {id:4, title:"프로젝트 4", explain:"ABCD"},
     ]);
 
-    const [isModalOpen, setIsModalOpen] = useState(true);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const addProject = (title, explain) => {
         const newProject = { id: id, title, explain};
